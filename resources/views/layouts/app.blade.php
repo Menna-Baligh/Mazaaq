@@ -94,27 +94,7 @@
                     </div>
                 </nav>
 
-                <!-- Hero Header -->
-                <div class="hero-header bg-dark text-white py-5 w-100">
-                    <div class="container my-5 py-5">
-                        <div class="row align-items-center g-5">
-                            <div class="col-lg-6 text-center text-lg-start">
-                                <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
-                                <p class="text-white animated slideInLeft mb-4 pb-2">
-                                    Mazaaq is your all-in-one smart system for effortless restaurant management — from orders to insights, all in one place.
-                                </p>
-                                <a href="#" style="background-color: #FEA116; border-color: #FEA116; color: white;"
-                                    class="btn py-sm-3 px-sm-5 me-3 animated slideInLeft">
-                                    Book A Table
-                                </a>
-
-                            </div>
-                            <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                                <img class="img-fluid" src="{{ asset('assets/img/hero.png') }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @yield('hero')
             </div>
         <!-- Navbar & Hero End -->
 
