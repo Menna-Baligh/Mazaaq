@@ -194,8 +194,8 @@
                                                     <span>{{ $food->name }}</span>
                                                     <span class="text-primary">${{ $food->price }}</span>
                                                 </h5>
-                                                <small class="fst-italic">{{ $food->description }}</small>
-                                                <a type="button" href="add-cart.html" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
+                                                <small class="fst-italic">{{ substr($food->description, 0, 100)."..." }}</small>
+                                                <a type="button" href="{{ route('foods.show',$food->id) }}" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -215,8 +215,8 @@
                                                     <span>{{ $food->name }}</span>
                                                     <span class="text-primary">${{ $food->price }}</span>
                                                 </h5>
-                                                <small class="fst-italic">{{ $food->description }}</small>
-                                                <a type="button" href="add-cart.html" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
+                                                <small class="fst-italic">{{ substr($food->description, 0, 100)."..." }}</small>
+                                                    <a type="button" href="{{ route('foods.show',$food->id) }}" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Read More</a>
                                             </div>
                                         </div>
                                 </div>
@@ -235,8 +235,8 @@
                                                     <span>{{ $food->name }}</span>
                                                     <span class="text-primary">${{ $food->price }}</span>
                                                 </h5>
-                                                <small class="fst-italic">{{ $food->description }}</small>
-                                                <a type="button" href="add-cart.html" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">view</a>
+                                                <small class="fst-italic">{{ substr($food->description, 0, 100)."..." }}</small>
+                                                <a type="button" href="{{ route('foods.show',$food->id) }}" class="btn btn-primary py-2 top-0 end-0 mt-2 me-2">Read More</a>
                                             </div>
                                         </div>
                                     </div>
