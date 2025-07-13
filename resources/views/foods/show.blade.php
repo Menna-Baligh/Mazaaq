@@ -17,6 +17,11 @@
     @endsection
     <div class="container-xxl py-5">
         <div class="container">
+            @if (session('success'))
+                <div class="alert alert-success" style="text-align: center; font-size: 18px; font-weight: bold;">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="row g-5 align-items-center">
                 <div class="col-md-6 text-center">
                     <img src="{{ asset($food->image) }}"
@@ -43,11 +48,13 @@
                         <h4 style="color: #001f3f; margin-bottom: 0;">💰 Price: ${{ number_format($food->price, 2) }}</h4>
                     </div>
 
-                    <a class="btn py-3 px-5"
-                        style="background-color: #f5c518; color: #001f3f; border-radius: 30px; font-weight: bold;"
-                        href="#">
-                        🛒 Add to Cart
-                    </a>
+                    <form action="{{ route('cart.store', $food->id) }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn py-3 px-5"
+                                style="background-color: #f5c518; color: #001f3f; border-radius: 30px; font-weight: bold;">
+                            🛒 Add to Cart
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
