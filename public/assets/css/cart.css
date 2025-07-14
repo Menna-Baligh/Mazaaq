@@ -1,0 +1,37 @@
+
+.card {
+    background-color: #1e2030 !important;
+    border: none;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.btn-outline-warning {
+    border-color: #FEA116;
+    color: #FEA116;
+}
+
+.btn-outline-warning:hover {
+    background-color: #FEA116;
+    color: #17192A;
+}
+
+.btn-warning {
+    background-color: #FEA116;
+    border-color: #FEA116;
+    color: #17192A;
+}
+
+.btn-warning:hover {
+    background-color: #e89d10;
+    border-color: #e89d10;
+}
+
+.empty-cart-note {
+    background-color: #1e2030;
+    padding: 60px 0;
+    border-radius: 12px;
+    margin-top: 40px;
+}

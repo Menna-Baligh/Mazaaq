@@ -478,4 +478,26 @@
     border-right: none;
 }
 
+.empty-cart-note {
+    background-color: #17192A;
+    color: #fff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-top: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.empty-cart-note h2 {
+    color: #FEA116;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.empty-cart-note p {
+    font-size: 18px;
+    color: #ccc;
+}
 
