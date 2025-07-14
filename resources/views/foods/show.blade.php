@@ -18,10 +18,39 @@
     <div class="container-xxl py-5">
         <div class="container">
             @if (session('success'))
-                <div class="alert alert-success" style="text-align: center; font-size: 18px; font-weight: bold;">
-                    {{ session('success') }}
-                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: '{{ session('success') }}',
+                            icon: 'success',
+                            showCancelButton: true,
+                            confirmButtonText: 'Go to Cart',
+                            cancelButtonText: 'Close',
+                            allowOutsideClick: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "{{ route('cart.index') }}";
+                            }
+                        });
+                    });
+                </script>
             @endif
+            @if(session('error'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: '{{ session('error') }}',
+                            icon: 'error',
+                            showCancelButton: true,
+                            confirmButtonText: 'Close',
+                            allowOutsideClick: false
+                        });
+                    });
+                </script>
+            @endif
+
             <div class="row g-5 align-items-center">
                 <div class="col-md-6 text-center">
                     <img src="{{ asset($food->image) }}"
@@ -47,7 +76,12 @@
                             style="border-color: #f5c518;">
                         <h4 style="color: #001f3f; margin-bottom: 0;">💰 Price: ${{ number_format($food->price, 2) }}</h4>
                     </div>
-
+                    @if($food->stock_quantity == 0)
+                        <div class="d-flex align-items-center border-start border-5 ps-3 mb-4"
+                                style="border-color: #f5c518;">
+                            <h4 style="color: #001f3f; margin-bottom: 0;">🚫 Out of stock</h4>
+                        </div>
+                    @else
                     <form action="{{ route('cart.store', $food->id) }}" method="post">
                         @csrf
                         <button type="submit" class="btn py-3 px-5"
@@ -55,6 +89,7 @@
                             🛒 Add to Cart
                         </button>
                     </form>
+                    @endif
                 </div>
             </div>
         </div>

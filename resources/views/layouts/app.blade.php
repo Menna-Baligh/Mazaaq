@@ -13,7 +13,6 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- Favicon -->
-    <link href="{{ asset('assets/img/favicon.ico') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,17 +22,22 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('assets/lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
+
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/cart.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -52,11 +56,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav ms-auto py-0 pe-4">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
                             <a href="about.html" class="nav-item nav-link">About</a>
                             <a href="service.html" class="nav-item nav-link">Service</a>
-                            <a href="menu.html" class="nav-item nav-link">Menu</a>
-                            <a href="cart.html" class="nav-item nav-link">
+                            <a href="{{ url('/') }}#menu" class="nav-item nav-link">Menu</a>
+                            <a href="{{ route('cart.index') }}" class="nav-item nav-link">
                                 <i class="fa-sharp fa-solid fa-cart-shopping"></i> Cart
                             </a>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
