@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->integer('stock_quantity')->nullable();
             $table->enum('category', ['breakfast', 'lunch', 'dinner']);
             $table->timestamps();
         });
