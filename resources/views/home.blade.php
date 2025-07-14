@@ -47,7 +47,11 @@
 @endsection
 
 <!-- Service Start -->
-        <div class="container-xxl py-5">
+        <div class="container-xxl py-5" id="service">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Our Services</h5>
+                    <h1 class="mb-5">Explore Our Services</h1>
+                </div>
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -93,7 +97,7 @@
 
 
         <!-- About Start -->
-        <div class="container-xxl py-5">
+        <div class="container-xxl py-5" id="about">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
