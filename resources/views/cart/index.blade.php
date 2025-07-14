@@ -77,7 +77,7 @@
 
                 <div class="text-end mt-4">
                     <h4 class="text-warning">Total: ${{ $cartItems->sum(fn($item) => $item->price * $item->quantity)}}</h4>
-                    <a href="" class="btn btn-warning px-5 py-2 fw-bold mt-2">Proceed to Checkout</a>
+                    <a href="{{ route('checkout.index') }}" class="btn btn-warning px-5 py-2 fw-bold mt-2">Proceed to Checkout</a>
                 </div>
             </div>
         </div>

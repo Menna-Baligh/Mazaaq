@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 
@@ -20,6 +21,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/cart/{id}',  'store')->name('cart.store');
         Route::delete('/cart/{id}', 'delete')->name('cart.delete');
         Route::put('/cart/{id}', 'update')->name('cart.update');
+    });
+
+    Route::controller(CheckoutController::class)->group(function () {
+        Route::get('/checkout', 'index')->name('checkout.index');
+        Route::post('/checkout', 'store')->name('checkout.store');
     });
 });
 
