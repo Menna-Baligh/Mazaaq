@@ -32,7 +32,7 @@
                                 <p class="text-white animated slideInLeft mb-4 pb-2">
                                     Mazaaq is your all-in-one smart system for effortless restaurant management — from orders to insights, all in one place.
                                 </p>
-                                <a href="#" style="background-color: #FEA116; border-color: #FEA116; color: white;"
+                                <a href="{{ url('/') }}#booking" style="background-color: #FEA116; border-color: #FEA116; color: white;"
                                     class="btn py-sm-3 px-sm-5 me-3 animated slideInLeft">
                                     Book A Table
                                 </a>
@@ -256,7 +256,7 @@
 
 
         <!-- Reservation Start -->
-        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s" id="booking">
             <div class="row g-0">
                 <div class="col-md-6">
                     <div class="video">
@@ -461,4 +461,5 @@
             </div>
         </div>
         <!-- Testimonial End -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" style=""><i class="bi bi-arrow-up"></i></a>
 @endsection
