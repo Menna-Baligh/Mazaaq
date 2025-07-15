@@ -18,20 +18,7 @@
         </div>
     @endsection
     <div class="container">
-            @if(session('success'))
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    Swal.fire({
-                        title: '🛒 Order Added!',
-                        text: '{{ session('success') }}',
-                        showCancelButton: true,
-                        cancelButtonText: 'Close',
-                        icon: 'success',
-                        allowOutsideClick: false
-                    });
-                });
-            </script>
-            @elseif (session('error'))
+            @if (session('error'))
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     Swal.fire({

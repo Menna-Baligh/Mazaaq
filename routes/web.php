@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -27,5 +28,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/checkout', 'index')->name('checkout.index');
         Route::post('/checkout', 'store')->name('checkout.store');
     });
+    Route::get('/pay', [PayController::class, 'index'])->name('pay.index');
 });
 
