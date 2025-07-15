@@ -64,7 +64,7 @@ class CheckoutController extends Controller
             }
             Cart::where('user_id', Auth::user()->id)->delete();
             DB::commit();
-            return redirect()->route('pay.index');
+            return redirect()->route('pay.index', ['order_id' => $order->id , 'total' => $order->total]);
         }catch(\Exception $e){
             DB::rollBack();
             return back()->with('error', 'Something went wrong please try again');

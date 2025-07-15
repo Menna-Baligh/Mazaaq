@@ -23,6 +23,7 @@
                     <div class="d-flex justify-content-center my-5">
                         <div id="paypal-button-container"></div>
                     </div>
+
                     <script>
                         paypal.Buttons({
                         // Sets up the transaction when a payment button is clicked
@@ -30,7 +31,7 @@
                             return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                value: '100' // Can also reference a variable or function
+                                value: "{{ $total }}"
                                 }
                             }]
                             });
@@ -38,8 +39,7 @@
                         // Finalize the transaction after payer approval
                         onApprove: (data, actions) => {
                             return actions.order.capture().then(function(orderData) {
-
-                            window.location.href='{{ route('home') }}';
+                                window.location.href = '{{ route('pay.success') }}?order_id={{ $orderId }}';
                             });
                         }
                         }).render('#paypal-button-container');

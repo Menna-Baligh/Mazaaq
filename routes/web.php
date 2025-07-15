@@ -29,5 +29,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/checkout', 'store')->name('checkout.store');
     });
     Route::get('/pay', [PayController::class, 'index'])->name('pay.index');
+    Route::get('/pay/success', [PayController::class, 'success'])->name('pay.success');
+
 });
 

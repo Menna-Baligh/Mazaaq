@@ -46,6 +46,24 @@
                 </div>
 @endsection
 
+    <script>
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            confirmButtonColor: '#3085d6'
+        });
+    @elseif(session('info'))
+        Swal.fire({
+            icon: 'info',
+            title: 'Info',
+            text: '{{ session('info') }}',
+            confirmButtonColor: '#3085d6'
+        });
+    @endif
+</script>
+
 <!-- Service Start -->
         <div class="container-xxl py-5" id="service">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
