@@ -153,3 +153,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         window.addEventListener("hashchange", activateLink);
     });
+
+    $(function () {
+        $('#datetimepicker3').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm', 
+            icons: {
+                time: 'fa fa-clock',
+                date: 'fa fa-calendar',
+                up: 'fa fa-chevron-up',
+                down: 'fa fa-chevron-down',
+                previous: 'fa fa-chevron-left',
+                next: 'fa fa-chevron-right',
+                today: 'fa fa-calendar-check',
+                clear: 'fa fa-trash',
+                close: 'fa fa-times'
+            }
+        });
+    });

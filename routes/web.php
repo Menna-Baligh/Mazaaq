@@ -8,6 +8,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ReservationController;
 
 
 
@@ -31,7 +32,10 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/pay', [PayController::class, 'index'])->name('pay.index');
     Route::get('/pay/success', [PayController::class, 'success'])->name('pay.success');
+
     Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 
 });
 

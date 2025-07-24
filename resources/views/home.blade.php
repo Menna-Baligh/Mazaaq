@@ -9,7 +9,7 @@
                     <div class="container my-5 py-5">
                         <div class="row align-items-center g-5">
                             <div class="col-lg-6 text-center text-lg-start">
-                                <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
+                                <h1 class="display-3 text-white animated slideInLeft">A Taste<br>You'll Never Forget</h1>
                                 <p class="text-white animated slideInLeft mb-4 pb-2">
                                     Mazaaq is your all-in-one smart system for effortless restaurant management — from orders to insights, all in one place.
                                 </p>
@@ -268,40 +268,63 @@
                     <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                         <h1 class="text-white mb-4">Book A Table Online</h1>
-                        <form>
+                        <form action="{{ route('reservation.store') }}" method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ old('name') }}">
                                         <label for="name">Your Name</label>
+                                        @error('name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" value="{{ old('email') }}">
                                         <label for="email">Your Email</label>
+                                        @error('email')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                    <div class="form-floating date" id="datetimepicker3" data-target-input="nearest">
+                                        <input type="text"
+                                            name="reservation_date"
+                                            id="datetime"
+                                            class="form-control datetimepicker-input"
+                                            placeholder="Select Date & Time"
+                                            data-target="#datetimepicker3"
+                                            data-toggle="datetimepicker"
+                                            value="{{ old('reservation_date') }}"
+                                            >
                                         <label for="datetime">Date & Time</label>
+                                        @error('reservation_date')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select" id="select1">
+                                        <select class="form-select" id="select1" name="people_count">
                                             <option value="1">People 1</option>
                                             <option value="2">People 2</option>
                                             <option value="3">People 3</option>
+                                            <option value="4">People 4</option>
+                                            <option value="5">People 5</option>
                                         </select>
                                         <label for="select1">No Of People</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                        <textarea class="form-control" placeholder="Special Request" id="message" name="special_request" style="height: 100px">{{ old('special_request') }}</textarea>
                                         <label for="message">Special Request</label>
+                                        @error('special_request')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
