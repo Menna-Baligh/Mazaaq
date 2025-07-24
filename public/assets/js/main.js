@@ -10,8 +10,8 @@
         }, 1);
     };
     spinner();
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -24,14 +24,14 @@
             $('.navbar').removeClass('sticky-top shadow-sm');
         }
     });
-    
-    
+
+
     // Dropdown on mouse hover
     const $dropdown = $(".dropdown");
     const $dropdownToggle = $(".dropdown-toggle");
     const $dropdownMenu = $(".dropdown-menu");
     const showClass = "show";
-    
+
     $(window).on("load resize", function() {
         if (this.matchMedia("(min-width: 992px)").matches) {
             $dropdown.hover(
@@ -52,8 +52,8 @@
             $dropdown.off("mouseenter mouseleave");
         }
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -114,6 +114,42 @@
             }
         }
     });
-    
+
 })(jQuery);
 
+document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".nav-link");
+
+        function activateLink() {
+            const currentPath = window.location.pathname;
+            const currentHash = window.location.hash;
+
+            links.forEach(link => {
+                const href = link.getAttribute("href");
+                const url = new URL(href, window.location.origin);
+                if (!href || href === "#") return;
+                const linkPath = url.pathname;
+                const linkHash = url.hash;
+
+                let isActive = false;
+
+                if (currentHash && linkHash && currentHash === linkHash && currentPath === linkPath) {
+                    isActive = true;
+                }
+
+                if (!currentHash && currentPath === linkPath && !linkHash) {
+                    isActive = true;
+                }
+
+                if (isActive) {
+                    link.classList.add("active");
+                } else {
+                    link.classList.remove("active");
+                }
+            });
+        }
+
+        activateLink();
+
+        window.addEventListener("hashchange", activateLink);
+    });

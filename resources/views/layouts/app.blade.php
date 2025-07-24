@@ -56,7 +56,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <div class="navbar-nav ms-auto py-0 pe-4">
-                            <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
+                            <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
                             <a href="{{ url('/') }}#about" class="nav-item nav-link">About</a>
                             <a href="{{ url('/') }}#service" class="nav-item nav-link">Service</a>
                             <a href="{{ url('/') }}#menu" class="nav-item nav-link">Menu</a>
