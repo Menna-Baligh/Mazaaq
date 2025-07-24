@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -16,6 +17,7 @@ class ReservationController extends Controller
             'special_request' => 'nullable|string|max:500',
         ]);
         Reservation::create([
+            'user_id' => Auth::id(),
             'name' => $request->name,
             'email' => $request->email,
             'reservation_date' => $request->reservation_date,
