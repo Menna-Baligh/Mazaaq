@@ -63,7 +63,7 @@
                             <a href="{{ route('cart.index') }}" class="nav-item nav-link">
                                 <i class="fa-sharp fa-solid fa-cart-shopping"></i> Cart
                             </a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="{{ route('contact.index') }}" class="nav-item nav-link">Contact</a>
                             <ul class="navbar-nav ms-auto py-0">
                                 @guest
                                     @if (Route::has('login'))
