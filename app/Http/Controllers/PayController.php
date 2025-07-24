@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PayController extends Controller
 {
@@ -20,9 +22,13 @@ class PayController extends Controller
         $order = Order::findorFail($orderId);
         if ($order && $order->status === 'pending') {
             $order->status = 'processing';
+            $order->payment_status = 'paid';
             $order->save();
+            Cart::where('user_id', Auth::user()->id)->delete();
             session()->flash('success', '✅ Payment successful. Your order is now being processed.');
         } else {
+            $order->payment_status = 'failed';
+            $order->save();
             session()->flash('info', '⚠️ No pending order found or this order was already processed.');
         }
         return redirect()->route('home');
