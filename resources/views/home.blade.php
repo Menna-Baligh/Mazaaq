@@ -309,13 +309,16 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select" id="select1" name="people_count">
-                                            <option value="1">People 1</option>
-                                            <option value="2">People 2</option>
-                                            <option value="3">People 3</option>
-                                            <option value="4">People 4</option>
-                                            <option value="5">People 5</option>
+                                            <option value="1" {{ old('people_count') == '1' ? 'selected': '' }}>People 1</option>
+                                            <option value="2" {{ old('people_count') == '2' ? 'selected': '' }}>People 2</option>
+                                            <option value="3" {{ old('people_count') == '3' ? 'selected': '' }}>People 3</option>
+                                            <option value="4" {{ old('people_count') == '4' ? 'selected': '' }}>People 4</option>
+                                            <option value="5" {{ old('people_count') == '5' ? 'selected': '' }}>People 5</option>
                                         </select>
                                         <label for="select1">No Of People</label>
+                                        @error('people_count')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
