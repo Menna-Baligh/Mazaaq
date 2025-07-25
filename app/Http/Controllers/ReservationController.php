@@ -12,7 +12,7 @@ class ReservationController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'reservation_date' => 'required|date',
+            'reservation_date' => 'required|date|after:now',
             'people_count' => 'required|integer|min:1|in:1,2,3,4,5',
             'special_request' => 'nullable|string|max:500',
         ]);
