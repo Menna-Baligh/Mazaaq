@@ -12,30 +12,37 @@ use App\Http\Controllers\ReservationController;
 
 
 
+//  Public Routes
 Auth::routes();
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
+//  Protected Routes (auth required)
 Route::middleware('auth')->group(function () {
+
+    //  Cart
+    Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/{id}',  'store')->name('store');
+        Route::delete('/{id}', 'delete')->name('delete');
+        Route::put('/{id}', 'update')->name('update');
+    });
+
+    //Foods
     Route::get('/foods/{id}', [FoodController::class, 'show'])->name('foods.show');
 
-    Route::controller(CartController::class)->group(function () {
-        Route::get('/cart', 'index')->name('cart.index');
-        Route::post('/cart/{id}',  'store')->name('cart.store');
-        Route::delete('/cart/{id}', 'delete')->name('cart.delete');
-        Route::put('/cart/{id}', 'update')->name('cart.update');
+    //  Checkout
+    Route::controller(CheckoutController::class)->prefix('checkout')->name('checkout.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
     });
 
-    Route::controller(CheckoutController::class)->group(function () {
-        Route::get('/checkout', 'index')->name('checkout.index');
-        Route::post('/checkout', 'store')->name('checkout.store');
-    });
+    //  Payment
     Route::get('/pay', [PayController::class, 'index'])->name('pay.index');
     Route::get('/pay/success', [PayController::class, 'success'])->name('pay.success');
 
-    Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-
+    //  Reservation
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
-
 });
+
 
