@@ -62,6 +62,7 @@ class CheckoutController extends Controller
                 $food->stock_quantity -= $item->quantity;
                 $food->save();
             }
+            Cart::where('user_id', Auth::user()->id)->delete();
             DB::commit();
             return redirect()->route('pay.index', ['order_id' => $order->id , 'total' => $order->total]);
         }catch(\Exception $e){

@@ -24,7 +24,6 @@ class PayController extends Controller
             $order->status = 'processing';
             $order->payment_status = 'paid';
             $order->save();
-            Cart::where('user_id', Auth::user()->id)->delete();
             session()->flash('success', '✅ Payment successful. Your order is now being processed.');
         } else {
             $order->payment_status = 'failed';

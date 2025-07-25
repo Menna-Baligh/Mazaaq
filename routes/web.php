@@ -6,6 +6,7 @@ use App\Http\Controllers\PayController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ReservationController;
@@ -44,6 +45,8 @@ Route::middleware('auth')->group(function () {
     //  Reservation
     Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    // orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 });
 
 
