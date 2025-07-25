@@ -13,5 +13,6 @@ class Reservation extends Model
         'reservation_date',
         'people_count',
         'special_request',
+        'status'
     ];
 }

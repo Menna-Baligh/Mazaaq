@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pay/success', [PayController::class, 'success'])->name('pay.success');
 
     //  Reservation
+    Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 });
 

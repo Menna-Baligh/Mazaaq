@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('reservation_date');
             $table->integer('people_count');
             $table->text('special_request')->nullable();
+            $table->enum('status', ['processing', 'booked', 'cancelled'])->default('processing');
             $table->timestamps();
         });
     }

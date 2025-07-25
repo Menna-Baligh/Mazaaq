@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
+    public function index(){
+        $reservations = Reservation::where('user_id', Auth::id())->get();
+        return view('reservation', compact('reservations'));
+    }
     public function store(Request $request){
         $request->validate([
             'name' => 'required|string|max:255',
