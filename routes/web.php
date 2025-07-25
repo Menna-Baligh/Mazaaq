@@ -39,14 +39,20 @@ Route::middleware('auth')->group(function () {
     });
 
     //  Payment
-    Route::get('/pay', [PayController::class, 'index'])->name('pay.index');
-    Route::get('/pay/success', [PayController::class, 'success'])->name('pay.success');
-
+    Route::controller(PayController::class)->prefix('pay')->name('pay.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/success', 'success')->name('success');
+    });
+    
     //  Reservation
-    Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
-    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::controller(ReservationController::class)->prefix('reservation')->name('reservation.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/', 'store')->name('store');
+    });
     // orders
-    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::controller(OrderController::class)->prefix('orders')->name('orders.')->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
 });
 
 
