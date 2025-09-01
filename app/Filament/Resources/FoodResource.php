@@ -12,6 +12,7 @@ use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -58,11 +59,11 @@ class FoodResource extends Resource
                             ->schema([
                                 FileUpload::make('image')
                                     ->image()
-                                    ->preserveFilenames()
                                     ->disk('public')
                                     ->directory('foods')
                                     ->imageEditor()
-                                    ->columnSpan('full'),
+                                    ->columnSpan('full')
+                                    ,
                             ]),
 
                         section::make('price & stock')
