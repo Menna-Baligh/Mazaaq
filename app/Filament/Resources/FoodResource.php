@@ -2,22 +2,25 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\FoodResource\Pages;
-use App\Filament\Resources\FoodResource\RelationManagers;
-use App\Models\Food;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\Food;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\FoodResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\FoodResource\RelationManagers;
 
 class FoodResource extends Resource
 {
     protected static ?string $model = Food::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart'; 
+    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
     public static function form(Form $form): Form
     {
@@ -31,7 +34,28 @@ class FoodResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                            ->label('Food Name'),
+
+                ImageColumn::make('image')
+                            ->label('Food Image')
+                            ->getStateUsing(fn ($record) => asset($record->image))
+                            ->rounded(),
+
+                TextColumn::make('price')
+                            ->label('Price')
+                            ->prefix('$'),
+
+                TextColumn::make('stock_quantity')
+                            ->label('Stock Quantity'),
+
+                BadgeColumn::make('category')
+                ->label('Category')
+                ->colors([
+                    'info' => 'breakfast',
+                    'warning' => 'lunch',
+                    'success' => 'dinner',
+                ])
             ])
             ->filters([
                 //
