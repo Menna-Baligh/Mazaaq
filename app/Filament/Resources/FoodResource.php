@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use Filament\Forms;
 use App\Models\Food;
-use Filament\Forms\Components\FileUpload;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
@@ -16,6 +15,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\MarkdownEditor;
 use App\Filament\Resources\FoodResource\Pages;
@@ -36,13 +37,17 @@ class FoodResource extends Resource
                     ->schema([
                         section::make()
                             ->schema([
-                                TextInput::make('name'),
+                                TextInput::make('name')
+                                    ->required()
+                                    ->maxLength(255),
+
                                 Select::make('category')
                                     ->options([
                                         'breakfast' => 'Breakfast',
                                         'lunch' => 'Lunch',
                                         'dinner' => 'Dinner',
-                                    ]),
+                                    ])
+                                    ->required(),
                                 MarkdownEditor::make('description')->columnSpan('full'),
                             ])->columns(2),
                     ]),
@@ -53,13 +58,24 @@ class FoodResource extends Resource
                             ->schema([
                                 FileUpload::make('image')
                                     ->image()
+                                    ->preserveFilenames()
+                                    ->disk('public')
+                                    ->directory('foods')
+                                    ->imageEditor()
                                     ->columnSpan('full'),
                             ]),
 
                         section::make('price & stock')
                             ->schema([
-                                TextInput::make('price'),
-                                TextInput::make('stock_quantity'),
+                                TextInput::make('price')
+                                    ->required()
+                                    ->numeric()
+                                    ->minValue(0),
+
+                                TextInput::make('stock_quantity')
+                                    ->required()
+                                    ->integer()
+                                    ->minValue(0),
                             ])->columns(2),
                     ]),
             ]);
@@ -70,12 +86,17 @@ class FoodResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                            ->label('Food Name'),
+                            ->label('Food Name')
+                            ->searchable()
+                            ->sortable(),
 
                 ImageColumn::make('image')
                             ->label('Food Image')
-                            ->getStateUsing(fn ($record) => asset($record->image))
+                            ->disk('public')
+                            ->visibility('public')
+                            ->getStateUsing(fn ($record) => asset('storage/' . $record->image))
                             ->rounded(),
+
 
                 TextColumn::make('price')
                             ->label('Price')
@@ -93,7 +114,12 @@ class FoodResource extends Resource
                 ])
             ])
             ->filters([
-                //
+                SelectFilter::make('category')
+                    ->options([
+                        'breakfast' => 'Breakfast',
+                        'lunch' => 'Lunch',
+                        'dinner' => 'Dinner',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
