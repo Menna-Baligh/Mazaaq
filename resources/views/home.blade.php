@@ -191,7 +191,7 @@
                                 @foreach ($breakfast as $food)
                                     <div class="col-lg-6">
                                         <div class="d-flex align-items-center">
-                                            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset(path: $food->image) }}" alt="" style="width: 80px;">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset(path: 'storage/'.$food->image) }}" alt="" style="width: 80px;">
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span>{{ $food->name }}</span>
@@ -212,7 +212,7 @@
                                 @foreach ($lunch as $food)
                                     <div class="col-lg-6">
                                         <div class="d-flex align-items-center">
-                                            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset(path: $food->image) }}" alt="" style="width: 80px;">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset(path: 'storage/'.$food->image) }}" alt="" style="width: 80px;">
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span>{{ $food->name }}</span>
@@ -232,7 +232,7 @@
                                 @foreach ($dinner as $food)
                                     <div class="col-lg-6">
                                         <div class="d-flex align-items-center">
-                                            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset(path: $food->image) }}" alt="" style="width: 80px;">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="{{ asset(path: 'storage/'.$food->image) }}" alt="" style="width: 80px;">
                                             <div class="w-100 d-flex flex-column text-start ps-4">
                                                 <h5 class="d-flex justify-content-between border-bottom pb-2">
                                                     <span>{{ $food->name }}</span>

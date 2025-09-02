@@ -50,7 +50,7 @@
                     <tbody>
                         @foreach($cartItems as $item)
                             <tr>
-                                <td><img src="{{ asset($item->food->image) }}" width="60" height="60" class="rounded-circle"></td>
+                                <td><img src="{{ asset('storage/'.$item->food->image) }}" width="60" height="60" class="rounded-circle"></td>
                                 <td>{{ $item->food->name }}</td>
                                 <td>${{ number_format($item->price, 2) }}</td>
                                 <td>

@@ -53,7 +53,7 @@
 
             <div class="row g-5 align-items-center">
                 <div class="col-md-6 text-center">
-                    <img src="{{ asset($food->image) }}"
+                    <img src="{{ asset('storage/'.$food->image) }}"
                             class="img-fluid shadow rounded"
                             style="max-width: 350px; border-radius: 16px; border: 4px solid #f5c518;">
                 </div>
