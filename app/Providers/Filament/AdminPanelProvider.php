@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -17,6 +18,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\NavigationItem;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -29,6 +31,24 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->colors([
                 'primary' => Color::Amber,
+            ])
+            ->favicon('assets/img/favicon.png')
+            ->sidebarCollapsibleOnDesktop()
+            ->navigationItems([
+                navigationItem::make('Filament Docs')
+                ->url('https://filamentphp.com/docs',shouldOpenInNewTab: true)
+                ->icon('heroicon-s-document-text')
+                ->group('external')
+                ->sort(2),
+            ])
+            ->userMenuItems([
+                MenuItem::make()
+                ->label('settings')
+                ->icon('heroicon-s-cog')
+                ->url(''),
+
+                'logout' => MenuItem::make()->label('logout'),
+
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
