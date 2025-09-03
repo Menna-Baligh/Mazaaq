@@ -1,14 +1,14 @@
 # Mazaaq 🍽️
 
-[![Last Commit](https://img.shields.io/github/last-commit/yourusername/mazaaq)]()
-[![Languages](https://img.shields.io/github/languages/count/yourusername/mazaaq)]()
-\[![PHP](https://img.shields.io/badge/PHP-8.2-blue?logo=php\&logoColor=white)]
-\[![Laravel](https://img.shields.io/badge/Laravel-10-red?logo=laravel\&logoColor=white)]
-\[![Composer](https://img.shields.io/badge/Composer-2.5-ff69b4?logo=composer\&logoColor=white)]
-\[![NPM](https://img.shields.io/badge/NPM-10-lightgrey?logo=npm\&logoColor=white)]
-\[![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql\&logoColor=white)]
-\[![JavaScript](https://img.shields.io/badge/JS-ES6-yellow?logo=javascript\&logoColor=black)]
-\[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap\&logoColor=white)]
+[![Last Commit](https://img.shields.io/github/last-commit/Menna-Baligh/Mazaaq.git)]()
+[![Languages](https://img.shields.io/github/languages/count/Menna-Baligh/Mazaaq.git)]()
+[![PHP](https://img.shields.io/badge/PHP-8.2-blue?logo=php\&logoColor=white)]()
+[![Laravel](https://img.shields.io/badge/Laravel-10-red?logo=laravel\&logoColor=white)]()
+[![Composer](https://img.shields.io/badge/Composer-2.5-ff69b4?logo=composer\&logoColor=white)]()
+[![NPM](https://img.shields.io/badge/NPM-10-lightgrey?logo=npm\&logoColor=white)]()
+[![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql\&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JS-ES6-yellow?logo=javascript\&logoColor=black)]()
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap\&logoColor=white)]()
 
 Mazaaq is a full-featured restaurant management and online ordering system built with **PHP** and **Laravel**. The project is divided into two main sections: the **Customer Frontend** and the **Admin Panel**. It comes with a complete restaurant menu, table booking system, cart and order management, and payment integration using **PayPal API**. The admin panel is powered by **Filament**, offering CRUD resources for every part of the system.
 
