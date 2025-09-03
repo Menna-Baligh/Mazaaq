@@ -50,6 +50,7 @@ class AdminPanelProvider extends PanelProvider
                 'logout' => MenuItem::make()->label('logout'),
 
             ])
+            ->globalSearchKeyBindings(['command+m' ,'ctrl+m'])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
