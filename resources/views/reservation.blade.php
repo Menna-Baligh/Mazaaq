@@ -20,10 +20,10 @@
             <h2 class="text-muted">You have no bookings yet.</h2>
             <p class="text-muted">Make a reservation to see it here.</p>
         </div>
-        
+
     @else
     <div class="container">
-    
+
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -43,7 +43,7 @@
                         <td>{{ \Carbon\Carbon::parse($res->reservation_date)->format('d M Y, h:i A') }}</td>
                         <td>{{ $res->people_count }}</td>
                         <td>
-                            <span class="badge 
+                            <span class="badge
                                 @if($res->status == 'booked') bg-success
                                 @elseif($res->status == 'processing') bg-warning
                                 @else bg-secondary
@@ -53,7 +53,7 @@
                         </td>
                         <td>
                             @if($res->status == 'booked')
-                                <a href="#" class="btn btn-sm btn-success">Review</a>
+                                <a href="{{ route('reservation.review', $res->id) }}" class="btn btn-sm btn-success">Review</a>
                             @else
                                 <span class="text-muted">Not available</span>
                             @endif

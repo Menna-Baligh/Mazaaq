@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,5 +30,24 @@ class ReservationController extends Controller
             'special_request' => $request->special_request,
         ]);
         return back()->with('success', 'Resservation done successfully.');
+    }
+    public function review($id){
+        $reservation = Reservation::findOrFail($id);
+        return view('review', compact('reservation'));
+    }
+    public function storeReview(Request $request, Reservation $reservation){
+        $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'required|string|max:1000',
+        ]);
+
+        Review::create([
+            'user_id' => Auth::id(),
+            'reservation_id' => $reservation->id,
+            'rating' => $request->rating,
+            'comment' => $request->comment,
+        ]);
+
+        return redirect()->route('home')->with('success', 'Thank you for your review!');
     }
 }

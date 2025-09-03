@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ReservationController;
@@ -49,11 +50,14 @@ Route::middleware('auth')->group(function () {
     Route::controller(ReservationController::class)->prefix('reservation')->name('reservation.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/', 'store')->name('store');
+        Route::get('/review/{id}', 'review')->name('review');
+        Route::post('/review/{reservation}', 'storeReview')->name('review.store');
     });
     // orders
     Route::controller(OrderController::class)->prefix('orders')->name('orders.')->group(function () {
         Route::get('/', 'index')->name('index');
     });
+
 });
 
 
