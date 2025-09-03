@@ -15,4 +15,8 @@ class Reservation extends Model
         'special_request',
         'status'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
