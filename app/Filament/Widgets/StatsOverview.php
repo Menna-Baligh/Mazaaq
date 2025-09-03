@@ -11,6 +11,8 @@ use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class StatsOverview extends BaseWidget
 {
+    protected static ?int $sort = 1;
+
     protected function getTrendStat($model, string $label, string $icon, string $defaultColor = 'info'): Stat
     {
         $total = $model::count();
