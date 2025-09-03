@@ -37,6 +37,8 @@ class FoodResource extends Resource
     protected static ?string $navigationGroup = 'Menu';
     protected static ?int $navigationSort = 0;
 
+    protected static ?string $recordTitleAttribute = 'name';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -158,4 +160,17 @@ class FoodResource extends Resource
             'edit' => Pages\EditFood::route('/{record}/edit'),
         ];
     }
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'description', 'category'];
+    }
+
+    public static function getGlobalSearchResultDetails($record): array
+    {
+        return [
+            'Category' => ucfirst($record->category),
+            'Stock' => $record->stock_quantity ? $record->stock_quantity : 'Out of stock',
+        ];
+    }
+    
 }
