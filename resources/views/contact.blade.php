@@ -15,6 +15,16 @@
             </div>
         </div>
 @endsection
+<script>
+    @if (session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            confirmButtonColor: '#3085d6'
+        });
+    @endif
+</script>
     <div class="container-xxl py-5">
         <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -47,30 +57,66 @@
 
             <div class="col-md-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
-                    <form>
+                    <form action="{{ route('contact.store') }}" method="POST">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" id="name" placeholder="Your Name" value="{{ old('name') }}">
                                     <label for="name">Your Name</label>
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="Your Email" value="{{ old('email') }}">
                                     <label for="email">Your Email</label>
+                                    @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <select class="form-select  @error('to') is-invalid @enderror" id="to" name="to" aria-label="Select recipient">
+                                        <option value="book@example.com" @selected(old('to') == 'book@example.com')>Booking</option>
+                                        <option value="info@example.com" @selected(old('to') == 'info@example.com')>General</option>
+                                        <option value="tech@example.com" @selected(old('to') == 'tech@example.com')>Technical</option>
+                                    </select>
+                                    <label for="to">Send To</label>
+                                    @error('to')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control  @error('subject') is-invalid @enderror" id="subject" name="subject" placeholder="Subject" value="{{ old('subject') }}">
                                     <label for="subject">Subject</label>
+                                    @error('subject')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control  @error('message') is-invalid @enderror" placeholder="Leave a message here" id="message" name="message" style="height: 150px">{{ old('message') }}</textarea>
                                     <label for="message">Message</label>
+                                    @error('message')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
@@ -83,5 +129,8 @@
         </div>
     </div>
 </div>
+
+
+
 
 @endsection

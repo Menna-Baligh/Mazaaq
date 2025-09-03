@@ -17,6 +17,7 @@ use App\Http\Controllers\ReservationController;
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 //  Protected Routes (auth required)
 Route::middleware('auth')->group(function () {
@@ -43,7 +44,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/success', 'success')->name('success');
     });
-    
+
     //  Reservation
     Route::controller(ReservationController::class)->prefix('reservation')->name('reservation.')->group(function () {
         Route::get('/', 'index')->name('index');
