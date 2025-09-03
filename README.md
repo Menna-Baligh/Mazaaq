@@ -11,7 +11,24 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-%20-purple?logo=bootstrap&style=flat-square)]()
 
 
-Mazaaq is a full-featured restaurant management and online ordering system built with **PHP** and **Laravel**. The project is divided into two main sections: the **Customer Frontend** and the **Admin Panel**. It comes with a complete restaurant menu, table booking system, cart and order management, and payment integration using **PayPal API**. The admin panel is powered by **Filament**, offering CRUD resources for every part of the system.
+## 📝Project Overview
+
+**Mazaaq** is a full-featured restaurant management application that consists of two main parts:
+
+1. **🍽️Customer Section**
+   - Menu browsing and food selection
+   - Table reservation system
+   - Shopping cart & order placement
+   - Payment integration using **PayPal API**
+   - Contact form for inquiries
+   - Review submission for completed reservations
+
+2. **🛡️Admin Panel**
+   - Built with **Filament Admin**
+   - Fully managed resources for users, foods, orders, and reservations
+   - Dashboard with statistics and charts
+
+
 
 ---
 
@@ -26,23 +43,16 @@ Mazaaq is a full-featured restaurant management and online ordering system built
 
 ---
 
-## 📂 Project Features
+## 🚀 Project Features
 
-### Customer Section
-
-* Browse restaurant **menu items**.
-* **Book tables** at the restaurant.
-* Add items to the **cart** and place **orders**.
-* Pay online securely via **PayPal API**.
-* Contact the restaurant directly using the **contact form**.
-* Submit **reviews** and rate .
-
-### Admin Panel
-
-* Built with **Filament** for fast backend management.
-* Full CRUD **resources** for users, foods, bookings, orders, and reviews.
-* Manage orders, bookings, and menu items efficiently.
-* Dashboard with **stats and charts** for orders, users, bookings, and popular menu items.
+- User authentication and registration
+- Dynamic food menu with images, price, and stock
+- Table booking system with date and people count
+- Shopping cart for multiple food orders
+- PayPal payment integration for secure transactions
+- Review system tied to reservations
+- Admin panel for managing all resources with Filament
+- Charts and statistics for orders, bookings, users, and popular foods
 
 ---
 
@@ -82,16 +92,10 @@ php artisan key:generate
 php artisan serve
 ```
 
-Now you can visit `http://127.0.0.1:8000` to see the application in action.
+Now you can visit `http://127.0.0.1:8000` to see the application in action as a regular user and explore its features.  
+If you want to access the admin panel, go to `http://127.0.0.1:8000/admin` and log in with an admin account.
 
 ---
 
-## 📊 Additional Notes
-
-* The **Admin Panel** is fully responsive and organized with **Filament resources** for each model.
-* The **dashboard** includes **stats widgets** for tracking users, orders, bookings, and popular foods.
-* **Payment system** uses PayPal Sandbox for testing.
-
----
 
 
