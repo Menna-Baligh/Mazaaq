@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,6 +28,7 @@ class HomeController extends Controller
         $breakfast = Food::where('category', 'breakfast')->get();
         $lunch = Food::where('category', 'lunch')->get();
         $dinner = Food::where('category', 'dinner')->get();
-        return view('home', compact('breakfast', 'lunch', 'dinner'));
+        $reviews = Review::where('rating', '>=', 4)->get();
+        return view('home', compact('breakfast', 'lunch', 'dinner','reviews'));
     }
 }

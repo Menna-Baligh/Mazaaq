@@ -502,3 +502,13 @@
     color: #ccc;
 }
 
+.owl-carousel .owl-item.center .testimonial-item {
+    background-color: #0B5ED7 !important;
+    color: #fff !important;
+}
+
+.testimonial-item .fa-star {
+    color: #ffc107;
+}
+
+
