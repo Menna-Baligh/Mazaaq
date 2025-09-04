@@ -1,5 +1,9 @@
 # Mazaaq 🍽️
 
+<p align="center">
+  <img src="public/assets/img/logo.png" alt="Mazaaq Logo" width="200">
+</p>
+
 [![Last Commit](https://img.shields.io/github/last-commit/Menna-Baligh/Mazaaq?style=flat-square&color=blue)](https://github.com/Menna-Baligh/Mazaaq)
 [![Languages](https://img.shields.io/github/languages/count/Menna-Baligh/Mazaaq?style=flat-square&color=success)](https://github.com/Menna-Baligh/Mazaaq)
 [![PHP](https://img.shields.io/badge/PHP-%20-blue?logo=php&style=flat-square)]()
