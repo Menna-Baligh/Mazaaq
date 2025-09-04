@@ -22,11 +22,17 @@
    - Payment integration using **PayPal API**
    - Contact form for inquiries
    - Review submission for completed reservations
+   > **Note:** Screens below are samples; full features will be visible when running the project.
+
+![Customer Section Screenshot](public/assets/img/user.PNG)
 
 2. **🛡️Admin Panel**
    - Built with **Filament Admin**
    - Fully managed resources for users, foods, orders, and reservations
    - Dashboard with statistics and charts
+   > **Note:** Screens below are illustrative only; full functionalities appear when the project is running.
+
+![Admin Panel Screenshot](public/assets/img/dashboard.PNG)
 
 
 
