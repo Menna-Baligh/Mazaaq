@@ -18,5 +18,14 @@ class Food extends Model
                 Storage::disk('public')->delete($food->image);
             }
         });
+
+        static::updating(function ($food) {
+            $oldImage = $food->getOriginal('image');
+            if ($food->isDirty('image') && $oldImage) {
+                    Storage::disk('public')->delete($oldImage);
+
+            }
+        });
     }
+
 }
