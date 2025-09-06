@@ -104,7 +104,6 @@ class FoodResource extends Resource
                             ->label('Food Image')
                             ->disk('public')
                             ->visibility('public')
-                            ->getStateUsing(fn ($record) => asset('storage/' . $record->image))
                             ->rounded(),
 
 
@@ -136,7 +135,7 @@ class FoodResource extends Resource
                     ViewAction::make(),
                     EditAction::make(),
                     DeleteAction::make(),
-                ])
+                ])->tooltip('Actions'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -172,5 +171,5 @@ class FoodResource extends Resource
             'Stock' => $record->stock_quantity ? $record->stock_quantity : 'Out of stock',
         ];
     }
-    
+
 }
