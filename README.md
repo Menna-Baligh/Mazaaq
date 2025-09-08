@@ -1,4 +1,4 @@
-# Mazaaq 🍽️
+# Mazaaq 
 
 <p align="center">
   <img src="public/assets/img/logo.png" alt="Mazaaq Logo" width="200">
